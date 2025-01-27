@@ -107,3 +107,26 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
   const [step, setStep] = useState(0);
   const [showDemo, setShowDemo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const benefits: Benefit[] = [
+    {
+      icon: Clock,
+      title: "Universal Rankings",
+      description: "See how your sales team stacks up against the industry. Access verified performance data across organizations."
+    },
+    {
+      icon: Shield,
+      title: "Market Insights",
+      description: "Get real benchmarking data on sales performance, compensation, and success patterns across companies."
+    },
+    {
+      icon: Target,
+      title: "Talent Intelligence",
+      description: "Identify top performers, track industry trends, and make data-driven decisions with verified sales metrics."
+    },
+    {
+      icon: Users,
+      title: "Success Patterns",
+      description: "Understand what drives success across organizations. Learn from verified top performers in your industry."
+    }
+  ];
