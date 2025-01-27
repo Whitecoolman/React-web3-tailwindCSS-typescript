@@ -553,3 +553,34 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       videoRef.current.playbackRate = 0.5; // Increase speed slightly to 50%
     }
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.post('/api/signup_to_waitlist', 
+        { email },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken,
+          },
+          withCredentials: true,
+        }
+      );
+
+      if (response.data.success) {
+        setSuccess(true);
+        setEmail('');
+      } else {
+        setError(response.data.message || 'Signup failed. Please try again.');
+      }
+    } catch (error: any) {
+      console.error('There was an error submitting the form!', error);
+      setError(error.response?.data?.message || 'An unexpected error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
