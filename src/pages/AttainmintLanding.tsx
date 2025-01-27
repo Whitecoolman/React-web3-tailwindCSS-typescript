@@ -606,3 +606,67 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
         return darkMode ? 'bg-black/30' : 'bg-gray-100';
     }
   };
+
+  const renderFeature = (feature: Feature) => (
+    <div key={feature.id} className="relative space-y-6">
+      <div className="flex items-start gap-4">
+        <div className={`p-2 rounded-lg ${feature.color === 'teal' ? 'bg-teal-500/10' : ''}`}>
+          <feature.icon className="w-6 h-6 text-teal-500" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className={`text-2xl font-semibold ${getTextColor('primary')}`}>
+            {feature.title}
+          </h3>
+          <p className={`mt-1 text-lg ${getTextColor('secondary')}`}>
+            {feature.subtitle}
+          </p>
+          <p className={`mt-4 ${getTextColor('muted')}`}>
+            {feature.description}
+          </p>
+          
+          {/* Stats Section */}
+          <div className="mt-6 grid grid-cols-2 gap-4">
+            {feature.stats.map((stat, index) => (
+              <div key={index} className={`p-4 rounded-lg ${getSectionBg('accent')}`}>
+                <dt className={`text-sm ${getTextColor('muted')}`}>{stat.label}</dt>
+                <dd className={`mt-1 text-2xl font-semibold ${getTextColor('primary')}`}>{stat.value}</dd>
+              </div>
+            ))}
+          </div>
+
+          {/* Benefits List */}
+          <ul className="mt-6 space-y-4">
+            {feature.benefits.map((benefit, index) => (
+              <li key={index} className="flex items-center gap-3">
+                <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0" />
+                <span className={getTextColor('secondary')}>{benefit}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Trading Link */}
+          {feature.tradingLink && (
+            <div className="mt-6">
+              <a
+                href={feature.tradingLink.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-lg hover:from-teal-600 hover:to-emerald-600 transition-all"
+              >
+                <img src={feature.tradingLink.logo} alt="Trading Platform" className="w-6 h-6" />
+                <span>Trade on pump.fun</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Chart Section */}
+      {feature.id === "smart-prospecting" && (
+        <div className="mt-6">
+          <TokenChart />
+        </div>
+      )}
+    </div>
+  );
