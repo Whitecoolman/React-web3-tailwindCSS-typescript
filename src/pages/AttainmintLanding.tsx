@@ -2103,3 +2103,331 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
               </div>
             </div>
           </section>
+<section className={`py-20 ${getSectionBg('accent')}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${getTextColor('primary')}`}>
+                  Common Questions
+                </h2>
+              </div>
+              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {[
+                  {
+                    q: "How do I get started?",
+                    a: "Start with 2-minute quarterly updates of your basic sales numbers. No company approval needed. You can add more verification layers like documents, peer endorsements, and company integrations over time."
+                  },
+                  {
+                    q: "What kind of proof can I add?",
+                    a: "Start with standard documents like W2s, offer letters, and pay stubs. Add peer endorsements from colleagues with verified corporate emails. When your company joins, unlock automatic verification through CRM and payroll systems."
+                  },
+                  {
+                    q: "Do I need my company's approval?",
+                    a: "No. You can start building your track record immediately without company participation. While companies can optionally join to enable additional verifications, many professionals start with self-reporting and individual verifications."
+                  },
+                  {
+                    q: "Why start with self-reporting?",
+                    a: "Self-reporting creates a timestamped record of your achievements as they happen, which is far more reliable than reconstructing your history later. Each entry is blockchain-verified for when it was recorded, adding credibility to your claims."
+                  },
+                  {
+                    q: "How do hiring managers verify my data?",
+                    a: "Each achievement shows its verification level - from self-reported to fully system-verified. Hiring managers can see exactly how each metric was verified, making your track record more credible than traditional resumes."
+                  },
+                  {
+                    q: "What about sensitive data?",
+                    a: "We never store sensitive documents - only verification proofs go on the blockchain. When you upload documents like W2s or pay stubs, we verify the key data points, automatically redact sensitive information, and only store the verified metrics. Original documents are immediately discarded after verification."
+                  },
+                  {
+                    q: "Can I compare against others?",
+                    a: "Yes! See how you rank against other sales professionals in your industry. Access benchmarking data for compensation, performance, and success patterns - perfect for negotiations and career planning."
+                  },
+                  {
+                    q: "What happens when I change jobs?",
+                    a: "Your verified track record stays with you. Start building it at your current job, and keep adding to it throughout your career. It's your professional asset that grows stronger over time."
+                  }
+                ].map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className={`
+                      p-6 rounded-xl border transition-all duration-200
+                      backdrop-blur-md shadow-lg
+                      ${darkMode
+                        ? 'bg-gray-900/70 border-white/20 hover:bg-gray-900/80'
+                        : 'bg-white/70 border-gray-200/30 shadow-sm hover:bg-white/80'}
+                    `}
+                  >
+                    <h3 className={`text-xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'} drop-shadow-sm`}>
+                      {faq.q}
+                    </h3>
+                    <p className={`${darkMode ? 'text-gray-200' : 'text-gray-700'} leading-relaxed drop-shadow-sm`}>
+                      {faq.a}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          
+          {/* Integration Section - Made More Distinct */}
+          <section className={`py-24 ${getSectionBg('primary')} relative border-t-4 border-b-4 ${darkMode ? 'border-teal-900/30' : 'border-teal-100'}`}>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-teal-500/5 to-transparent pointer-events-none"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="max-w-3xl mx-auto"
+                >
+                  <div className={`
+                    inline-flex items-center gap-2 px-6 py-2 rounded-full text-base font-semibold mb-8
+                    ${darkMode ? 'bg-teal-900/50 text-teal-200' : 'bg-teal-50 text-teal-800'}
+                  `}>
+                    <Layers className="w-5 h-5" />
+                    Seamless Integration Hub
+                  </div>
+                  <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${getTextColor('primary')}`}>
+                    Connect Your Entire
+                    <span className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent"> Sales Stack</span>
+                  </h2>
+                  <p className={`text-xl mb-8 leading-relaxed ${getTextColor('secondary')}`}>
+                    Unify your workflow with native integrations to leading platforms. 
+                    Access our database of 45M+ companies and 250M+ contacts seamlessly.
+                  </p>
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="relative mb-16"
+              >
+                <div className={`
+                  absolute inset-0 rounded-3xl
+                  ${darkMode 
+                    ? 'bg-gradient-to-b from-teal-900/10 to-emerald-900/10' 
+                    : 'bg-gradient-to-b from-teal-500/5 to-emerald-500/5'}
+                `} />
+                <IntegrationAnimation />
+              </motion.div>
+
+              {/* Integration features grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "Sales Tools",
+                    description: "Connect your CRM (Salesforce, HubSpot) and outbound platforms (Outreach, SalesLoft) to automatically verify deals and activity.",
+                    icon: Layers,
+                    integrations: ["Salesforce", "HubSpot", "Outreach", "SalesLoft"]
+                  },
+                  {
+                    title: "HR Systems",
+                    description: "Link payroll and HR platforms to verify compensation, commissions, and performance reviews.",
+                    icon: Database,
+                    integrations: ["ADP", "Workday", "SuccessFactors", "BambooHR"]
+                  },
+                  {
+                    title: "Professional Networks",
+                    description: "Connect professional networks and achievement platforms to import awards and certifications.",
+                    icon: Users,
+                    integrations: ["LinkedIn", "Credly", "Sales Certifications", "Industry Awards"]
+                  }
+                ].map((feature, index) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`
+                      flex flex-col p-6 rounded-xl 
+                      backdrop-blur-sm border transition-all duration-200
+                      ${darkMode 
+                        ? 'bg-gray-800/50 border-gray-700 hover:bg-gray-800/70' 
+                        : 'bg-white/20 border-gray-200/30 hover:bg-white/30'}
+                    `}
+                  >
+                    <div className={`
+                      p-3 rounded-full mb-4 w-fit
+                      ${darkMode ? 'bg-teal-900/50' : 'bg-teal-50/50'}
+                    `}>
+                      <feature.icon className="w-6 h-6 text-teal-600 dark:text-teal-400" />
+                    </div>
+                    <h3 className={`text-xl font-semibold mb-2 ${getTextColor('primary')}`}>
+                      {feature.title}
+                    </h3>
+                    <p className={`${getTextColor('muted')} mb-4`}>
+                      {feature.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {feature.integrations.map((integration, idx) => (
+                        <span key={idx} className={`
+                          px-3 py-1 rounded-full text-sm
+                          ${darkMode 
+                            ? 'bg-teal-900/30 text-teal-300' 
+                            : 'bg-teal-50 text-teal-700'}
+                        `}>
+                          {integration}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              <div className="text-center mt-12 mb-8">
+                <button
+                  onClick={() => handleGetStarted('enterprise')}
+                  className="px-8 py-4 rounded-lg bg-gradient-to-r from-teal-600 to-emerald-600 
+                    hover:from-teal-700 hover:to-emerald-700 text-white font-semibold text-lg 
+                    shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1"
+                >
+                  Explore Enterprise Solutions
+                </button>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Final CTA */}
+          <section className="py-20 relative">
+            <div className="container mx-auto px-4">
+                  <div className={`
+                rounded-2xl p-12 relative overflow-hidden
+                ${darkMode ? 'bg-gray-900/50' : 'bg-white/50'}
+                backdrop-blur-md border border-gray-200/30 dark:border-white/10
+              `}>
+                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div className="relative z-10 text-center">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400">
+                    Stand Out in the AI Era
+                  </h2>
+                  <p className="text-lg md:text-xl mb-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    As AI transforms the sales landscape, your proven track record becomes more valuable than ever. 
+                    Start building your verified sales history today and showcase the human excellence that AI can't replicate.
+                  </p>
+                  <button
+                    onClick={() => handleGetStarted()}
+                    className="px-8 py-4 rounded-lg bg-gradient-to-r from-teal-600 to-emerald-600 
+                      hover:from-teal-700 hover:to-emerald-700 text-white font-semibold text-lg 
+                      shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1"
+                  >
+                    Begin Your Success Story
+                  </button>
+                    </div>
+              </div>
+            </div>
+          </section>
+
+          {/* AI Verification Section */}
+          <section className={`py-24 ${getSectionBg('secondary')} relative border-t-4 border-b-4 ${darkMode ? 'border-purple-900/30' : 'border-purple-100'}`}>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent pointer-events-none"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="max-w-4xl mx-auto"
+                >
+                  <div className={`
+                    inline-flex items-center gap-2 px-6 py-2 rounded-full text-base font-semibold mb-8
+                    ${darkMode ? 'bg-purple-900/50 text-purple-200' : 'bg-purple-50 text-purple-800'}
+                  `}>
+                    <Bot className="w-5 h-5" />
+                    AI Agent Verification
+                  </div>
+                  <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${getTextColor('primary')}`}>
+                    Trust and Verify
+                    <span className="bg-gradient-to-r from-purple-600 via-purple-500 to-teal-500 bg-clip-text text-transparent"> AI-Driven Sales</span>
+                  </h2>
+                  <p className={`text-xl mb-6 leading-relaxed ${getTextColor('secondary')}`}>
+                    As AI agents revolutionize sales by taking over prospecting, outreach, and SDR functions, 
+                    it's crucial to maintain transparency and accountability. Just like with documents, we never store sensitive AI data - only verified proofs.
+                  </p>
+                  <p className={`text-lg mb-12 ${getTextColor('muted')}`}>
+                    Attainmint provides complete visibility and blockchain verification of AI agent activities,
+                    ensuring you always know what actions are being taken on your behalf.
+                  </p>
+                </motion.div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {[
+                  {
+                    icon: Brain,
+                    title: "AI Agent Actions",
+                    description: "Every autonomous action taken by AI agents is logged, verified, and traceable. From prospect identification to outreach attempts, maintain full visibility of your AI workforce.",
+                    features: ["Action logging", "Real-time monitoring", "Performance tracking"]
+                  },
+                  {
+                    icon: Shield,
+                    title: "Verification Layer",
+                    description: "Blockchain-backed verification ensures AI actions are immutable and auditable. Build trust with prospects by showing transparent, verified AI interactions.",
+                    features: ["Blockchain verification", "Audit trails", "Compliance records"]
+                  },
+                  {
+                    icon: Target,
+                    title: "Human Oversight",
+                    description: "Set boundaries and maintain control over AI activities. Review autonomous actions, adjust permissions, and ensure AI agents align with your sales strategy.",
+                    features: ["Permission controls", "Activity reviews", "Strategy alignment"]
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`
+                      p-8 rounded-xl border relative overflow-hidden
+                      backdrop-blur-md shadow-lg
+                      ${darkMode 
+                        ? 'bg-gray-900/70 border-white/20 hover:bg-gray-900/80'
+                        : 'bg-white/70 border-gray-200/30 hover:bg-white/80'}
+                    `}
+                  >
+                    <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <div className="relative z-10">
+                      <item.icon className="w-10 h-10 text-purple-400 dark:text-purple-300 mb-6" />
+                      <h3 className={`text-xl font-bold mb-4 ${getTextColor('primary')}`}>
+                        {item.title}
+                    </h3>
+                      <p className={`${getTextColor('secondary')} mb-6`}>
+                        {item.description}
+                      </p>
+                      <ul className="space-y-3">
+                        {item.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center gap-2">
+                            <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0" />
+                            <span className={`${getTextColor('muted')}`}>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="text-center mt-12 mb-8">
+                  <button 
+                  onClick={() => handleGetStarted('professional')}
+                  className="px-8 py-4 rounded-lg bg-gradient-to-r from-purple-600 to-teal-600 
+                    hover:from-purple-700 hover:to-teal-700 text-white font-semibold text-lg 
+                    shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1"
+                >
+                  Learn About AI Verification
+                  </button>
+                </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </>
+  );
+}
