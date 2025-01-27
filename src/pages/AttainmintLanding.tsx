@@ -193,3 +193,114 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       ]
     }
   ];
+
+  const hiringFeatures: HiringFeature[] = [
+    {
+      title: "Candidate Verification Portal",
+      description: "Instantly verify sales achievements with blockchain-backed proof and multi-layer validation",
+      icon: Shield,
+      features: [
+        "One-click blockchain verification",
+        "Multi-source validation checks",
+        "Historical performance tracking",
+        "Verification audit trails"
+      ]
+    },
+    {
+      title: "Advanced Analytics Dashboard",
+      description: "Compare candidates with powerful analytics and data visualization tools",
+      icon: BarChart3,
+      features: [
+        "Side-by-side metric comparison",
+        "Performance trend analysis",
+        "Industry benchmarking",
+        "Custom scoring models"
+      ]
+    },
+    {
+      title: "Talent Pipeline Management",
+      description: "Streamline your hiring workflow with automated candidate tracking and assessment",
+      icon: Users,
+      features: [
+        "Automated candidate scoring",
+        "Team collaboration tools",
+        "Interview scheduling",
+        "Assessment templates"
+      ]
+    }
+  ];
+
+  const mainFeatures: Feature[] = [
+    {
+      id: "individual-tracking",
+      title: "Personal Sales History",
+      subtitle: "Your Career Story, Your Control",
+      description: "Build your sales track record in just 2 minutes per quarter. Start with basic numbers, then add verification layers as you grow. Perfect for job changes, reviews, and proving your long-term impact - no company participation needed.",
+      icon: Target,
+      benefits: [
+        "2-minute quarterly updates",
+        "Track deals and quota attainment",
+        "Add proof points over time",
+        "Follows your entire career"
+      ],
+      color: "teal",
+      stats: [
+        { label: "Time Per Quarter", value: "2 min" },
+        { label: "Success Rate", value: "98%" }
+      ]
+    },
+    {
+      id: "progressive-trust",
+      title: "Progressive Trust Building",
+      subtitle: "From Basic to Bulletproof",
+      description: "Start with simple self-reporting and build credibility over time. Each verification layer strengthens your profile - from document uploads to peer endorsements, manager verification, and system integrations.",
+      icon: Shield,
+      benefits: [
+        "Multiple verification types",
+        "Upload standard documents",
+        "Get peer endorsements",
+        "Connect company systems"
+      ],
+      color: "teal",
+      stats: [
+        { label: "Free Verifications", value: "6+" },
+        { label: "Premium Layers", value: "5+" }
+      ]
+    },
+    {
+      id: "blockchain-resume",
+      title: "Universal Sales Rankings",
+      subtitle: "See Where You Stand",
+      description: "Compare your performance against top sales professionals across organizations. Access industry benchmarks, compensation data, and success patterns. Perfect for negotiations and career planning.",
+      icon: Briefcase,
+      benefits: [
+        "Cross-company benchmarks",
+        "Verification proofs on-chain",
+        "Success pattern analysis",
+        "Performance percentiles"
+      ],
+      color: "teal",
+      stats: [
+        { label: "Data Points", value: "45M+" },
+        { label: "Companies", value: "10K+" }
+      ]
+    },
+    {
+      id: "privacy-security",
+      title: "Privacy & Security",
+      subtitle: "You Control Your Data",
+      description: "We never store sensitive documents - only verification proofs go on the blockchain. Documents like W2s and pay stubs are verified, then immediately discarded. You control what metrics to share and with whom.",
+      icon: Lock,
+      benefits: [
+        "Automatic data redaction",
+        "Documents never stored",
+        "Verification proofs only",
+        "GDPR compliant"
+      ],
+      color: "teal",
+      stats: [
+        { label: "Data Control", value: "100%" },
+        { label: "Privacy First", value: "Always" }
+      ]
+    }
+  ];
