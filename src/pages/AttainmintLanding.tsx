@@ -1219,4 +1219,147 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
                   </div>
                 </div>
               </section>
+<section className={`py-24 ${getSectionBg('secondary')} relative border-t-4 border-b-4 ${darkMode ? 'border-purple-900/30' : 'border-purple-100'}`}>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent pointer-events-none"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="max-w-3xl mx-auto"
+                >
+                  <div className={`
+                    inline-flex items-center gap-2 px-6 py-2 rounded-full text-base font-semibold mb-8
+                    ${darkMode ? 'bg-purple-900/50 text-purple-200' : 'bg-purple-50 text-purple-800'}
+                  `}>
+                    <Shield className="w-5 h-5" />
+                    Progressive Trust Building
+                  </div>
+                  <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${getTextColor('primary')}`}>
+                    Multiple Layers of
+                    <span className="bg-gradient-to-r from-purple-600 via-purple-500 to-teal-500 bg-clip-text text-transparent"> Verification</span>
+                  </h2>
+                  <p className={`text-xl mb-8 leading-relaxed ${getTextColor('secondary')}`}>
+                    Start with free verifications and add premium layers as you grow.
+                    Each level strengthens your credibility.
+                  </p>
+                </motion.div>
+              </div>
 
+              {/* Free Verifications */}
+              <div className="mb-12">
+                <h3 className={`text-2xl font-bold mb-6 ${getTextColor('primary')} text-center`}>
+                  Free Verifications
+                  <span className={`ml-2 px-3 py-1 text-sm rounded-full ${darkMode ? 'bg-teal-900/50 text-teal-200' : 'bg-teal-50 text-teal-800'}`}>
+                    Available to Everyone
+                  </span>
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {verificationLevels
+                    .filter(level => level.badge === 'Free')
+                    .map((level, index) => (
+                      <motion.div
+                        key={level.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className={`
+                          p-6 rounded-xl border relative
+                          backdrop-blur-md shadow-lg
+                          ${darkMode
+                            ? 'bg-gray-900/70 border-white/20 hover:bg-gray-900/80'
+                            : 'bg-white/70 border-gray-200/30 hover:bg-white/80'}
+                        `}
+                      >
+                        <div className={`
+                          absolute -top-3 -right-3 px-3 py-1 rounded-full text-sm font-semibold
+                          shadow-lg backdrop-blur-sm
+                          ${darkMode ? 'bg-teal-900/90 text-teal-100' : 'bg-teal-100 text-teal-900'}
+                        `}>
+                          Free
+                        </div>
+                        <div className={`absolute -top-3 left-3 px-2 py-0.5 rounded-full text-xs ${darkMode ? 'bg-gray-800 text-gray-300' : 'bg-gray-100 text-gray-600'}`}>
+                          {level.subBadge}
+                        </div>
+                        <level.icon className={`w-8 h-8 text-teal-400 dark:text-teal-300 mb-4 mt-2`} />
+                        <h3 className={`text-lg font-bold mb-2 ${getTextColor('primary')}`}>
+                          {level.title}
+                        </h3>
+                        <p className={`${getTextColor('secondary')} text-sm`}>
+                          {level.description}
+                        </p>
+                      </motion.div>
+                    ))}
+                </div>
+              </div>
+
+              {/* Premium Verifications */}
+              <div>
+                <h3 className={`text-2xl font-bold mb-6 ${getTextColor('primary')} text-center`}>
+                  Premium Verifications
+                  <span className={`ml-2 px-3 py-1 text-sm rounded-full ${darkMode ? 'bg-purple-900/50 text-purple-200' : 'bg-purple-50 text-purple-800'}`}>
+                    Enhanced Trust
+                  </span>
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {verificationLevels
+                    .filter(level => level.badge !== 'Free')
+                    .map((level, index) => (
+                      <motion.div
+                        key={level.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className={`
+                          p-6 rounded-xl border relative
+                          backdrop-blur-md shadow-lg
+                          ${darkMode
+                            ? 'bg-gray-900/70 border-white/20 hover:bg-gray-900/80'
+                            : 'bg-white/70 border-gray-200/30 hover:bg-white/80'}
+                        `}
+                      >
+                        <div className={`
+                          absolute -top-3 -right-3 px-3 py-1 rounded-full text-sm font-semibold
+                          shadow-lg backdrop-blur-sm
+                          ${level.badge === 'Enterprise'
+                            ? (darkMode ? 'bg-rose-900/90 text-rose-100' : 'bg-rose-100 text-rose-900')
+                            : (darkMode ? 'bg-indigo-900/90 text-indigo-100' : 'bg-indigo-100 text-indigo-900')
+                          }
+                        `}>
+                          {level.badge}
+                        </div>
+                        <div className={`absolute -top-3 left-3 px-2 py-0.5 rounded-full text-xs ${darkMode ? 'bg-gray-800 text-gray-300' : 'bg-gray-100 text-gray-600'}`}>
+                          {level.subBadge}
+                        </div>
+                        <level.icon className={`w-8 h-8 mb-4 mt-2
+                          ${level.badge === 'Enterprise' 
+                            ? 'text-rose-400 dark:text-rose-300'
+                            : 'text-indigo-400 dark:text-indigo-300'
+                          }
+                        `} />
+                        <h3 className={`text-lg font-bold mb-2 ${getTextColor('primary')}`}>
+                          {level.title}
+                        </h3>
+                        <p className={`${getTextColor('secondary')} text-sm`}>
+                          {level.description}
+                        </p>
+                      </motion.div>
+                    ))}
+                </div>
+              </div>
+
+              <div className="text-center mt-12 mb-8">
+                <button
+                  onClick={() => handleGetStarted('professional')}
+                  className="px-8 py-4 rounded-lg bg-gradient-to-r from-purple-600 to-teal-600 
+                    hover:from-purple-700 hover:to-teal-700 text-white font-semibold text-lg 
+                    shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1"
+                >
+                  Start Your Trust Journey
+                </button>
+              </div>
+            </div>
+          </section>
