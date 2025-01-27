@@ -1721,4 +1721,187 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
                 </button>
               </div>
             </div>
+              </section>
+    <section className={`py-24 ${getSectionBg('secondary')} relative border-t-4 border-b-4 ${darkMode ? 'border-indigo-900/30' : 'border-indigo-100'}`}>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent pointer-events-none"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <div className={`
+                  inline-flex items-center gap-2 px-6 py-2 rounded-full text-base font-semibold mb-8
+                  ${darkMode ? 'bg-purple-900/50 text-purple-200' : 'bg-purple-50 text-purple-800'}
+                `}>
+                  <Star className="w-5 h-5" />
+                  Premium Features
+                </div>
+                <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${getTextColor('primary')}`}>
+                  Advanced Tools for Every Role
+                </h2>
+                <p className={`text-xl ${getTextColor('muted')} max-w-3xl mx-auto mb-6`}>
+                  As AI agents take on more autonomous sales actions, it's crucial that these actions are auditable and verified.
+                  Our platform ensures complete transparency and verification of both human and AI-driven activities.
+                </p>
+                <p className={`text-lg ${getTextColor('muted')} max-w-3xl mx-auto mb-12`}>
+                  Every AI interaction, recommendation, and automated action is blockchain-verified and traceable,
+                  helping you build trust in an AI-augmented sales environment.
+                </p>
+
+                {/* Tabs */}
+                <div className="flex justify-center gap-4 mb-16">
+                  <button
+                    onClick={() => setActiveTab('sales')}
+                    className={`
+                      px-6 py-3 rounded-lg font-semibold transition-all duration-200
+                      ${activeTab === 'sales' 
+                        ? (darkMode 
+                            ? 'bg-purple-900/80 text-purple-100' 
+                            : 'bg-purple-100 text-purple-900')
+                        : (darkMode
+                            ? 'bg-gray-800/50 text-gray-300 hover:bg-gray-800'
+                            : 'bg-gray-100/50 text-gray-600 hover:bg-gray-100')}
+                    `}
+                  >
+                    Sales Command Center
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('hiring')}
+                    className={`
+                      px-6 py-3 rounded-lg font-semibold transition-all duration-200
+                      ${activeTab === 'hiring' 
+                        ? (darkMode 
+                            ? 'bg-purple-900/80 text-purple-100' 
+                            : 'bg-purple-100 text-purple-900')
+                        : (darkMode
+                            ? 'bg-gray-800/50 text-gray-300 hover:bg-gray-800'
+                            : 'bg-gray-100/50 text-gray-600 hover:bg-gray-100')}
+                    `}
+                  >
+                    Hiring & Talent Acquisition
+                  </button>
+                </div>
+              </div>
+
+              {/* Tab Content */}
+              <AnimatePresence mode="wait">
+                {/* Sales Command Center Features */}
+                {activeTab === 'sales' && (
+                  <motion.div
+                    key="sales"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="grid md:grid-cols-2 gap-8"
+                  >
+                    {salesCommandFeatures.map((feature, index) => (
+                      <motion.div
+                        key={feature.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className={`
+                          p-8 rounded-xl border transition-all duration-200
+                          backdrop-blur-md shadow-lg
+                          ${darkMode
+                            ? 'bg-gray-900/70 border-white/20 hover:bg-gray-900/80' 
+                            : 'bg-white/70 border-gray-200/30 hover:shadow-xl hover:bg-white/80'}
+                        `}
+                      >
+                        <feature.icon className="w-10 h-10 text-purple-400 dark:text-purple-300 mb-6 drop-shadow-md" />
+                        <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'} drop-shadow-sm`}>
+                          {feature.title}
+                        </h3>
+                        <p className={`${darkMode ? 'text-gray-200' : 'text-gray-700'} text-lg mb-6 leading-relaxed drop-shadow-sm`}>
+                          {feature.description}
+                        </p>
+                        
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 gap-4 mb-6">
+                          {feature.stats.map((stat, idx) => (
+                            <div key={idx} className={`
+                              p-4 rounded-lg
+                              ${darkMode ? 'bg-gray-800/50' : 'bg-gray-50/50'}
+                            `}>
+                              <div className={`text-2xl font-bold ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>
+                                {stat.value}
+                              </div>
+                              <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                {stat.label}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Features List */}
+                        <ul className="space-y-3">
+                          {feature.features.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0 mt-1" />
+                              <span className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-left`}>
+                                {item}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+
+                {/* Hiring Manager Features */}
+                {activeTab === 'hiring' && (
+                  <motion.div
+                    key="hiring"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  >
+                    {hiringFeatures.map((feature, index) => (
+                      <motion.div
+                        key={feature.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className={`
+                          p-8 rounded-xl border transition-all duration-200
+                          backdrop-blur-md shadow-lg
+                          ${darkMode
+                            ? 'bg-gray-900/70 border-white/20 hover:bg-gray-900/80' 
+                            : 'bg-white/70 border-gray-200/30 hover:shadow-xl hover:bg-white/80'}
+                        `}
+                      >
+                        <feature.icon className="w-10 h-10 text-purple-400 dark:text-purple-300 mb-6 drop-shadow-md" />
+                        <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'} drop-shadow-sm`}>
+                          {feature.title}
+                        </h3>
+                        <p className={`${darkMode ? 'text-gray-200' : 'text-gray-700'} text-lg mb-6 leading-relaxed drop-shadow-sm`}>
+                          {feature.description}
+                        </p>
+                        <ul className="space-y-3">
+                          {feature.features.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-purple-500 flex-shrink-0 mt-1" />
+                              <span className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} text-left`}>
+                                {item}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <div className="text-center mt-12 mb-8">
+                <button
+                  onClick={() => handleGetStarted('professional')}
+                  className="px-8 py-4 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 
+                    hover:from-indigo-700 hover:to-purple-700 text-white font-semibold text-lg 
+                    shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1"
+                >
+                  Unlock Premium Features
+                </button>
+              </div>
+            </div>
           </section>
