@@ -457,3 +457,58 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       tags: ["Company Enabled", "Growth Proof"]
     }
   ];
+
+  const userTypes = [
+    {
+      type: "Sales Professionals",
+      icon: User,
+      description: "Build your verified track record and stand out in a competitive market.",
+      benefits: [
+        { text: "2-minute quarterly updates", isPremium: false },
+        { text: "Compare against top performers", isPremium: false },
+        { text: "Track your career progression", isPremium: false },
+        { text: "Showcase verified achievements", isPremium: false },
+        { text: "Automatic CRM verification", isPremium: true },
+        { text: "Compensation benchmarking", isPremium: true }
+      ]
+    },
+    {
+      type: "Sales Leaders",
+      icon: Users,
+      description: "Discover industry patterns and identify winning strategies across organizations.",
+      benefits: [
+        { text: "Universal sales leaderboard", isPremium: true },
+        { text: "Success pattern analysis", isPremium: true },
+        { text: "Team performance optimization", isPremium: true },
+        { text: "Identify top talent early", isPremium: true },
+        { text: "Industry-wide benchmarking", isPremium: true },
+        { text: "Retention risk indicators", isPremium: true }
+      ]
+    },
+    {
+      type: "Hiring Teams",
+      icon: UserPlus,
+      description: "Make data-driven hiring decisions with verified performance history.",
+      benefits: [
+        { text: "Verify past performance", isPremium: false },
+        { text: "Predict future success", isPremium: false },
+        { text: "Compare candidate metrics", isPremium: false },
+        { text: "Role fit assessment", isPremium: true },
+        { text: "Team dynamic analysis", isPremium: true },
+        { text: "Skill gap identification", isPremium: true }
+      ]
+    },
+    {
+      type: "Organizations",
+      icon: Building,
+      description: "Transform your sales organization with data-driven insights and benchmarking.",
+      benefits: [
+        { text: "Cross-industry comparisons", isPremium: true },
+        { text: "Identify winning patterns", isPremium: true },
+        { text: "Optimize compensation plans", isPremium: true },
+        { text: "Improve hiring accuracy", isPremium: true },
+        { text: "Reduce turnover risk", isPremium: true },
+        { text: "Strategic talent planning", isPremium: true }
+      ]
+    }
+  ];
