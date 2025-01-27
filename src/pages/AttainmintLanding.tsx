@@ -1015,3 +1015,60 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
                           <source src={networkCanopy} type="video/webm" />
                         </video>
                       </div>
+    
+    <div className={`
+                        absolute inset-0 flex items-center justify-center
+                        transition-all duration-300 transform
+                        ${isPortalHovered ? 'opacity-20 scale-95' : 'opacity-70 scale-100'}
+                      `}>
+                        {/* Centered logo */}
+                        <img 
+                          src={logo} 
+                          alt="Attainmint Logo" 
+                          className="absolute w-20 h-20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`
+                  inline-flex items-center gap-2 px-6 py-2 rounded-full text-base font-semibold mb-8
+                  ${darkMode 
+                    ? 'bg-teal-900/90 text-teal-100 backdrop-blur-md shadow-lg' 
+                    : 'bg-teal-50/95 text-teal-900 backdrop-blur-md shadow-md'}
+                `}
+              >
+                <Shield className="w-5 h-5" />
+                Your Verified Sales Legacy
+              </motion.div>
+              
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-8 
+                  max-w-4xl mx-auto leading-[1.2] tracking-tight
+                  drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]"
+              >
+                Build Your{" "}
+                <span className="bg-gradient-to-r from-teal-400 via-teal-500 to-emerald-500 
+                  bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
+                  Verified Sales History
+                </span>{" "}
+                on the Blockchain
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed 
+                  font-medium tracking-tight backdrop-blur-[2px]
+                  drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
+              >
+                Keep your sales achievements at your fingertips - forever. Just 2 minutes each quarter to maintain 
+                your complete track record. Your data stays with you even when you change companies.
+              </motion.p>
