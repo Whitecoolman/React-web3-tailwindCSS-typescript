@@ -76,3 +76,34 @@ declare global {
     };
   }
 }
+
+const TokenChart = () => {
+  return (
+    <div className="w-full h-[400px] rounded-lg overflow-hidden bg-gradient-to-br from-teal-500/10 to-emerald-500/10 backdrop-blur shadow-xl">
+      <iframe
+        title="MINT Token Chart"
+        src="https://dexscreener.com/solana/6bmxm9pzqkra4n3itdgtkmtjc55dsjv7dwqg525mh81c?embed=1&theme=dark&trades=1"
+        className="w-full h-full border-0"
+      />
+    </div>
+  );
+};
+
+export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+  const [csrfToken, setCsrfToken] = useState('');
+  const [isPaused, setIsPaused] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const { darkMode } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isLandingPage = location.pathname === '/';
+  const tokenData = useTokenData();
+  const [isPortalHovered, setIsPortalHovered] = useState(false);
+  const [activeTab, setActiveTab] = useState('sales');
+  const [step, setStep] = useState(0);
+  const [showDemo, setShowDemo] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
