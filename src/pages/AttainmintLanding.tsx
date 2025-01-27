@@ -1551,3 +1551,174 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
                   </div>
                 </motion.div>
               </div>
+              <div className={`
+                relative rounded-2xl overflow-hidden shadow-2xl
+                ${darkMode ? 'bg-gray-900/80 border border-gray-800' : 'bg-white/90 border border-gray-200'}
+                backdrop-blur-sm
+              `}>
+                {/* Demo Header with window controls */}
+                <div className={`
+                  px-6 py-4 border-b
+                  ${darkMode ? 'bg-gray-800/50 border-gray-700/50' : 'bg-gray-50/50 border-gray-200/50'}
+                  backdrop-blur-sm
+                `}>
+                  {/* Window Controls */}
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                </div>
+
+                {/* Invitation Banner */}
+                <div className={`
+                  px-6 py-3 border-b flex items-center justify-between
+                  ${darkMode 
+                    ? 'bg-teal-900/30 border-teal-800/50 text-teal-100' 
+                    : 'bg-teal-50/80 border-teal-100 text-teal-800'}
+                  backdrop-blur-sm
+                `}>
+                  <div className="flex items-center gap-2">
+                    <Eye className="w-5 h-5" />
+                    <span className="font-medium">You've been invited to view Sarah's Sales Resume</span>
+                  </div>
+                  <div className={`
+                    px-3 py-1 rounded-full text-sm
+                    ${darkMode ? 'bg-teal-800/50 text-teal-200' : 'bg-teal-100/50 text-teal-700'}
+                  `}>
+                    View Only
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  {/* Sample resume content */}
+                  <BlockchainResume darkMode={darkMode} />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Benefits for Everyone Section */}
+          <section className={`py-24 relative`}>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-teal-500/5 to-transparent pointer-events-none"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="max-w-3xl mx-auto"
+                >
+                  <div className={`
+                    inline-flex items-center gap-2 px-6 py-2 rounded-full text-base font-semibold mb-8
+                    ${darkMode ? 'bg-teal-900/50 text-teal-200' : 'bg-teal-50 text-teal-800'}
+                    backdrop-blur-sm
+                  `}>
+                    <Users className="w-5 h-5" />
+                    Who's it for?
+                  </div>
+                  <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${getTextColor('primary')}`}>
+                    Benefits for
+                    <span className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent"> Every Role</span>
+                  </h2>
+                  <p className={`text-xl mb-8 leading-relaxed ${getTextColor('secondary')}`}>
+                    From individual contributors to enterprise organizations, Attainmint delivers value through verified excellence and blockchain transparency.
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Core Benefits Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+                {benefits.map((benefit, index) => (
+                  <motion.div
+                    key={benefit.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`
+                      p-8 rounded-xl border relative overflow-hidden
+                      backdrop-blur-sm shadow-lg transition-all duration-200
+                      ${darkMode
+                        ? 'bg-gray-900/20 border-white/10 hover:bg-gray-900/30'
+                        : 'bg-white/20 border-gray-200/20 hover:bg-white/30'}
+                    `}
+                  >
+                    <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <div className="relative z-10">
+                      <div className={`
+                        w-12 h-12 rounded-lg mb-6 flex items-center justify-center
+                        ${darkMode ? 'bg-teal-900/50' : 'bg-teal-50/50'}
+                      `}>
+                        <benefit.icon className="w-6 h-6 text-teal-500" />
+                      </div>
+                      <h3 className={`text-xl font-bold mb-4 ${getTextColor('primary')}`}>
+                        {benefit.title}
+                      </h3>
+                      <p className={`${getTextColor('secondary')} leading-relaxed text-sm`}>
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Role-Based Benefits */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {userTypes.map((type, index) => (
+                  <motion.div
+                    key={type.type}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`
+                      p-8 rounded-xl border relative overflow-hidden
+                      backdrop-blur-md shadow-lg
+                      ${darkMode
+                        ? 'bg-gray-900/30 border-white/20 hover:bg-gray-900/40'
+                        : 'bg-white/30 border-gray-200/30 hover:bg-white/40'}
+                    `}
+                  >
+                    <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <div className="relative z-10">
+                      <div className="flex items-start">
+                        <type.icon className="w-8 h-8 text-teal-400 dark:text-teal-300 mb-4" />
+                      </div>
+                      <h3 className={`text-xl font-bold mb-2 text-left ${getTextColor('primary')}`}>
+                        {type.type}
+                      </h3>
+                      <p className={`text-sm mb-6 text-left ${getTextColor('secondary')}`}>
+                        {type.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {type.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
+                              benefit.isPremium 
+                                ? 'text-purple-500 dark:text-purple-400'
+                                : 'text-teal-500 dark:text-teal-400'
+                            }`} />
+                            <span className={`${getTextColor('muted')} text-sm text-left`}>
+                              {benefit.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-12 mb-8">
+                <button
+                  onClick={() => handleGetStarted()}
+                  className="px-8 py-4 rounded-lg bg-gradient-to-r from-teal-600 to-emerald-600 
+                    hover:from-teal-700 hover:to-emerald-700 text-white font-semibold text-lg 
+                    shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1"
+                >
+                  Find Your Perfect Plan
+                </button>
+              </div>
+            </div>
+          </section>
