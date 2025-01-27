@@ -130,3 +130,66 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       description: "Understand what drives success across organizations. Learn from verified top performers in your industry."
     }
   ];
+
+  const salesCommandFeatures: AIFeature[] = [
+    {
+      icon: Bot,
+      title: "AI-Powered Action Center",
+      description: "Scroll through a personalized feed of prioritized actions, enriched contacts, and opportunities. AI agents analyze your data 24/7, suggest next steps, and help you take action directly from the feed.",
+      stats: [
+        { label: "Time Saved Daily", value: "3.5 hrs" },
+        { label: "Action Rate", value: "+72%" }
+      ],
+      features: [
+        "Smart feed prioritization",
+        "One-click actions from feed",
+        "Real-time contact enrichment",
+        "AI agent assistance"
+      ]
+    },
+    {
+      icon: Brain,
+      title: "AI Sales Agents",
+      description: "Your 24/7 sales team that works while you sleep. Every AI action is blockchain-verified and auditable. AI agents continuously enrich your contacts, analyze patterns, and provide real-time guidance with complete transparency.",
+      stats: [
+        { label: "Response Rate", value: "+85%" },
+        { label: "Verified Actions", value: "100%" }
+      ],
+      features: [
+        "Blockchain-verified AI actions",
+        "Auditable automation trail",
+        "Transparent decision logs",
+        "Real-time verification"
+      ]
+    },
+    {
+      icon: Target,
+      title: "Social-Style Action Feed",
+      description: "A familiar social media-style interface that makes sales actions intuitive. Scroll through prioritized opportunities, take action directly, and get AI assistance at every step.",
+      stats: [
+        { label: "Database Size", value: "45M+" },
+        { label: "Contacts", value: "250M+" }
+      ],
+      features: [
+        "Social-style scroll interface",
+        "Prioritized opportunities",
+        "Direct action capabilities",
+        "Continuous AI assistance"
+      ]
+    },
+    {
+      icon: MessageSquare,
+      title: "24/7 Sales Assistant",
+      description: "Get real-time help with emails, calls, and meetings as you work. AI agents analyze conversations, suggest responses, and help you close more deals.",
+      stats: [
+        { label: "Availability", value: "24/7" },
+        { label: "Success Rate", value: "+68%" }
+      ],
+      features: [
+        "Real-time conversation analysis",
+        "Smart response suggestions",
+        "Deal coaching",
+        "Performance insights"
+      ]
+    }
+  ];
