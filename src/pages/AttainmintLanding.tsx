@@ -1072,3 +1072,151 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
                 Keep your sales achievements at your fingertips - forever. Just 2 minutes each quarter to maintain 
                 your complete track record. Your data stays with you even when you change companies.
               </motion.p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                {[
+                  {
+                    icon: Clock,
+                    title: "2 Min Updates",
+                    description: "Quick quarterly check-ins"
+                  },
+                  {
+                    icon: Target,
+                    title: "Always Ready",
+                    description: "No scrambling for data"
+                  },
+                  {
+                    icon: Shield,
+                    title: "Your Record",
+                    description: "Moves with your career"
+                  },
+                  {
+                    icon: CheckCircle,
+                    title: "Future Proof",
+                    description: "Access anytime, anywhere"
+                  }
+                ].map((benefit) => (
+                  <motion.div
+                    key={benefit.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className={`
+                      flex items-center gap-3 px-4 py-3 rounded-lg border
+                      backdrop-blur-md transition-all duration-200 shadow-lg
+                      ${darkMode 
+                        ? 'bg-white/10 border-white/20 hover:bg-white/15' 
+                        : 'bg-white/20 border-gray-200/30 hover:bg-white/25'}
+                    `}
+                  >
+                    <benefit.icon className="w-5 h-5 text-teal-500" />
+                    <div className="text-left">
+                      <div className={`font-semibold ${getTextColor('primary')} drop-shadow-sm`}>
+                        {benefit.title}
+                      </div>
+                      <div className={`text-sm ${getTextColor('secondary')} drop-shadow-sm`}>
+                        {benefit.description}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              <section className={`py-24 ${getSectionBg('primary')} relative border-t-4 border-b-4 ${darkMode ? 'border-emerald-900/30' : 'border-emerald-100'}`}>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent pointer-events-none"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="max-w-3xl mx-auto"
+                >
+                  <div className={`
+                    inline-flex items-center gap-2 px-6 py-2 rounded-full text-base font-semibold mb-8
+                    ${darkMode ? 'bg-teal-900/50 text-teal-200' : 'bg-teal-50 text-teal-800'}
+                  `}>
+                    <Target className="w-5 h-5" />
+                    Simple Process
+                  </div>
+                  <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${getTextColor('primary')}`}>
+                    How It
+                    <span className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent"> Works</span>
+                    </h2>
+                  <p className={`text-xl mb-8 leading-relaxed ${getTextColor('secondary')}`}>
+                    Start building your verified sales history in minutes—no corporate approval needed.
+                    You're in control of your data and verification layers.
+                    </p>
+                </motion.div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    {howItWorks.map((step, index) => (
+                      <motion.div
+                        key={step.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className={`
+                      p-6 rounded-xl border relative
+                      backdrop-blur-md shadow-lg
+                          ${darkMode
+                            ? 'bg-gray-900/70 border-white/20 hover:bg-gray-900/80' 
+                        : 'bg-white/70 border-gray-200/30 hover:bg-white/80'}
+                        `}
+                      >
+                        <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold">
+                          {step.step}
+                        </div>
+                    <step.icon className="w-8 h-8 text-teal-400 dark:text-teal-300 mb-4" />
+                    <h3 className={`text-xl font-bold mb-3 ${getTextColor('primary')}`}>
+                          {step.title}
+                        </h3>
+                    <p className={`${getTextColor('secondary')} mb-4`}>
+                          {step.description}
+                        </p>
+                    <ul className="space-y-2">
+                      {step.details.map((detail, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-teal-500 flex-shrink-0 mt-1" />
+                          <span className={`${getTextColor('muted')} text-sm text-left`}>
+                            {detail}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                      </motion.div>
+                    ))}
+                  </div>
+
+              {/* Additional Info Box */}
+              <div className={`
+                mt-12 p-6 rounded-xl border
+                ${darkMode
+                  ? 'bg-gray-800/50 border-white/10'
+                  : 'bg-white/50 border-gray-200/30'}
+                backdrop-blur-sm shadow-lg
+                max-w-3xl mx-auto text-center
+              `}>
+                <h4 className={`text-lg font-semibold mb-2 ${getTextColor('primary')}`}>
+                  What About Company Integration?
+                </h4>
+                <p className={`${getTextColor('secondary')}`}>
+                  While companies can optionally integrate with our platform to provide additional verification,
+                  you don't need to wait for them. Start building your verified sales history today and add
+                  more verification layers as they become available.
+                </p>
+              </div>
+              <div className="text-center mt-12 mb-8">
+                <button
+                  onClick={() => handleGetStarted('enterprise')}
+                  className="px-8 py-4 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 
+                    hover:from-emerald-700 hover:to-teal-700 text-white font-semibold text-lg 
+                    shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1"
+                >
+                  Get Started Now
+                </button>
+                  </div>
+                </div>
+              </section>
+
