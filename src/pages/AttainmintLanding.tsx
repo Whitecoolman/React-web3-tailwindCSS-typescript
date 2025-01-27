@@ -883,3 +883,135 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
           zIndex: 0
         }}
       />
+    
+    <div className="fixed inset-0 w-full h-full overflow-hidden" style={{ zIndex: 1 }}>
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className={`
+            w-full h-full object-cover scale-125 opacity-60
+            ${darkMode ? '' : 'opacity-40'}
+          `}
+          style={{ mixBlendMode: darkMode ? 'overlay' : 'color-burn' }}
+        >
+          <source src={fallingLeaves} type="video/webm" />
+        </video>
+      </div>
+      
+      {/* Main Content */}
+      <div 
+        className={`
+          relative z-10 min-h-screen w-full
+          font-inter transition-all duration-200
+          ${darkMode ? 'text-white' : 'text-gray-900'}
+        `}
+      >
+        <div className="min-h-screen overflow-auto">
+          {/* Hero Section */}
+          <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16">
+            {/* Dark overlay for better text legibility */}
+            <div className={`
+              absolute inset-0
+              ${darkMode 
+                ? 'bg-gradient-to-b from-gray-900/70 via-gray-900/50 to-gray-900/70' 
+                : 'bg-gradient-to-b from-white/30 via-white/20 to-white/30'}
+            `} />
+            
+            {/* Accent gradient */}
+            <div className={`absolute inset-0 ${
+              darkMode 
+                ? 'bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.1),transparent_50%)]' 
+                : 'bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.1),transparent_50%)]'
+            }`} />
+            
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex justify-center mb-8"
+              >
+                <div 
+                  className="w-[200px] h-[200px] pointer-events-auto perspective-1000"
+                  onMouseEnter={() => setIsPortalHovered(true)}
+                  onMouseLeave={() => setIsPortalHovered(false)}
+                >
+                  <motion.div 
+                    className="relative w-full h-full group cursor-pointer"
+                    animate={{
+                      scale: isPortalHovered ? 1.1 : 1,
+                      rotateX: isPortalHovered ? 5 : 0,
+                      rotateY: isPortalHovered ? -5 : 0,
+                    }}
+                    whileHover={{
+                      scale: 1.1,
+                      rotateX: 5,
+                      rotateY: -5,
+                    }}
+                    transition={{ 
+                      duration: 0.4,
+                      ease: "easeOut"
+                    }}
+                  >
+                    {/* Portal depth effect */}
+                    <div className={`
+                      absolute inset-0 rounded-full 
+                      bg-gradient-to-b from-teal-500/5 via-emerald-500/5 to-teal-500/10
+                      transform -translate-z-12 scale-95
+                      transition-all duration-500
+                      ${isPortalHovered ? 'opacity-100 blur-lg' : 'opacity-0 blur-md'}
+                    `} />
+
+                    {/* Outer glow with depth */}
+                    <div className={`
+                      absolute inset-0 rounded-full 
+                      bg-gradient-to-r from-teal-500/10 via-emerald-500/10 to-teal-500/10 
+                      blur-lg scale-110 transform
+                      transition-all duration-500 ease-out
+                      ${isPortalHovered ? 'opacity-80 -translate-z-8' : 'opacity-20 translate-z-0'}
+                    `} />
+                    
+                    {/* Animated rings with depth */}
+                    <div className={`
+                      absolute inset-0 rounded-full border-2 border-teal-500/20 
+                      animate-[spin_8s_linear_infinite] transform
+                      transition-all duration-500
+                      ${isPortalHovered ? 'opacity-80 -translate-z-4 border-teal-400/30' : 'opacity-20'}
+                    `} />
+                    <div className={`
+                      absolute inset-0 rounded-full border-2 border-emerald-500/10 
+                      animate-[spin_12s_linear_infinite_reverse] transform
+                      transition-all duration-500
+                      ${isPortalHovered ? 'opacity-80 -translate-z-2 border-emerald-400/20' : 'opacity-20'}
+                    `} />
+                    
+                    {/* Video container with perspective transform */}
+                    <div className={`
+                      absolute inset-0 rounded-full overflow-hidden 
+                      border-4 border-teal-500/20 backdrop-blur-[2px]
+                      transition-all duration-500 transform
+                      ${isPortalHovered ? 
+                        'border-teal-400/30 shadow-lg shadow-teal-500/10 translate-z-4 scale-105 ring-2 ring-teal-500/20 ring-offset-2 ring-offset-teal-500/10' : 
+                        'scale-100'
+                      }
+                    `}>
+                      {/* Network Canopy Video */}
+                      <div className={`
+                        transition-all duration-500 transform
+                        ${isPortalHovered ? 'opacity-80 scale-110 translate-z-6' : 'opacity-0 scale-90'}
+                      `}>
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className={`
+                            w-full h-full object-cover scale-150
+                          `}
+                          style={{ mixBlendMode: 'screen' }}
+                        >
+                          <source src={networkCanopy} type="video/webm" />
+                        </video>
+                      </div>
