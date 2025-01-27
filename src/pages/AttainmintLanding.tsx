@@ -1904,4 +1904,202 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
                 </button>
               </div>
             </div>
+              </section>
+              
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 mt-24">
+                {[
+                  {
+                    icon: Shield,
+                    title: "Verified Excellence",
+                    description: "Multi-layer verification"
+                  },
+                  {
+                    icon: Target,
+                    title: "Professional Growth",
+                    description: "Personal & team success"
+                  },
+                  {
+                    icon: CheckCircle,
+                    title: "Blockchain Backed",
+                    description: "Immutable achievements"
+                  },
+                  {
+                    icon: Coins,
+                    title: "MINT Rewards",
+                    description: "Earn as you achieve"
+                  }
+                ].map((benefit) => (
+                  <motion.div
+                    key={benefit.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className={`
+                      flex items-center gap-3 px-4 py-3 rounded-lg border
+                      backdrop-blur-md transition-all duration-200 shadow-lg
+                      ${darkMode 
+                        ? 'bg-white/10 border-white/20 hover:bg-white/15' 
+                        : 'bg-white/20 border-gray-200/30 hover:bg-white/25'}
+                    `}
+                  >
+                    <benefit.icon className="w-5 h-5 text-teal-500" />
+                    <div className="text-left">
+                      <div className={`font-semibold ${getTextColor('primary')} drop-shadow-sm`}>
+                        {benefit.title}
+                      </div>
+                      <div className={`text-sm ${getTextColor('secondary')} drop-shadow-sm`}>
+                        {benefit.description}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Main Features */}
+          {mainFeatures.map((feature, index) => (
+            <section 
+              key={feature.id}
+              className={`py-24 ${index % 2 === 0 ? getSectionBg('primary') : getSectionBg('accent')}`}
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className={`
+                  flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}
+                  items-center gap-12
+                `}>
+                  <div className="lg:w-1/2">
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <feature.icon className={`w-12 h-12 text-${feature.color}-400 mb-6 drop-shadow-lg`} />
+                      <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'} drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]`}>
+                        {feature.title}
+                      </h2>
+                      <p className={`text-xl mb-4 ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-semibold drop-shadow-sm`}>
+                        {feature.subtitle}
+                      </p>
+                      <p className={`mb-8 text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed drop-shadow-sm`}>
+                        {feature.description}
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-4 mb-8">
+                        {feature.stats.map((stat, idx) => (
+                          <div key={idx} className={`
+                            p-4 rounded-lg border transition-all duration-200
+                            backdrop-blur-md shadow-lg
+                            ${darkMode
+                              ? 'bg-gray-900/70 border-white/20 hover:bg-gray-900/80'
+                              : 'bg-white/70 border-gray-200/30 hover:shadow-xl hover:bg-white/80'}
+                          `}>
+                            <dt className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{stat.label}</dt>
+                            <dd className={`text-2xl font-bold mt-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>{stat.value}</dd>
+                          </div>
+                        ))}
+                      </div>
+
+                      {feature.tradingLink && (
+                        <div className="mb-8">
+                          <a
+                            href={feature.tradingLink.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`
+                              inline-flex items-center gap-3 px-6 py-3 rounded-xl
+                              transition-all duration-200
+                              ${darkMode 
+                                ? 'bg-gray-800/70 hover:bg-gray-800/90 text-white' 
+                                : 'bg-white/70 hover:bg-white/90 text-gray-900'}
+                              shadow-lg hover:shadow-2xl backdrop-blur-sm
+                            `}
+                          >
+                            <img 
+                              src={feature.tradingLink.logo} 
+                              alt="pump.fun logo" 
+                              className="h-6 w-auto"
+                            />
+                            <span className="font-medium">Trade on pump.fun</span>
+                            <ArrowUpRight className="w-4 h-4 opacity-70" />
+                          </a>
+                        </div>
+                      )}
+
+                      {/* Benefits List */}
+                      <ul className="space-y-4">
+                        {feature.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-center gap-3">
+                            <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0" />
+                            <span className={darkMode ? 'text-gray-200' : 'text-gray-700'}>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  </div>
+
+                  {/* Chart Section */}
+                  <div className="lg:w-1/2">
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {feature.id === "smart-prospecting" && (
+                        <div className="w-full h-[400px] rounded-lg overflow-hidden bg-gradient-to-br from-teal-500/10 to-emerald-500/10 backdrop-blur shadow-xl">
+                          <TokenChart />
+                        </div>
+                      )}
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          ))}
+
+          {/* Testimonials */}
+          <section className={`py-20 ${getSectionBg('secondary')}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${getTextColor('primary')}`}>
+                  Trusted by Sales Professionals
+                </h2>
+                <p className={`text-xl ${getTextColor('muted')}`}>
+                  See how verified achievements and AI transparency are transforming sales careers
+                </p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                {testimonials.map((testimonial, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`
+                      p-6 rounded-xl border transition-all duration-200
+                      ${darkMode 
+                        ? 'bg-gradient-to-b from-indigo-900/20 to-emerald-900/20 border-white/10 hover:bg-white/5' 
+                        : 'bg-white/10 border-gray-200/30 shadow-sm hover:bg-white/20'}
+                    `}
+                  >
+                    <div className="flex flex-col h-full">
+                      <p className={`italic mb-6 flex-grow ${getTextColor('secondary')}`}>
+                        "{testimonial.quote}"
+                      </p>
+                      <div>
+                        <div className={`font-medium ${getTextColor('primary')}`}>
+                          {testimonial.author}
+                        </div>
+                        <div className={`text-sm ${getTextColor('muted')}`}>
+                          {testimonial.role}, {testimonial.company}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </section>
