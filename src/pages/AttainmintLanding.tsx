@@ -304,3 +304,156 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       ]
     }
   ];
+
+  const howItWorks = [
+    {
+      step: 1,
+      title: "2-Minute Start",
+      description: "Begin with just basic numbers - deals closed and quota. Takes 2 minutes to log your first quarter. Later, connect your tools to automate everything.",
+      icon: Clock,
+      details: [
+        "2-minute initial setup",
+        "Basic numbers only",
+        "Optional automation later",
+        "Mobile-friendly"
+      ]
+    },
+    {
+      step: 2,
+      title: "Simple Verification",
+      description: "Verify your corporate email address to establish company affiliation. Then strengthen your profile with standard documents like W2s and offer letters.",
+      icon: Shield,
+      details: [
+        "Secure email verification",
+        "Standard document proof",
+        "Verification proofs on-chain",
+        "Privacy controls"
+      ]
+    },
+    {
+      step: 3,
+      title: "Lifetime Value",
+      description: "Your verified sales history becomes a powerful asset that moves with your career. Perfect for job searches, reviews, and proving your long-term impact.",
+      icon: CheckCircle,
+      details: [
+        "Complete history ready",
+        "Follows your career",
+        "Instant verification",
+        "Privacy controls"
+      ]
+    }
+  ];
+
+  // Add verification levels explanation
+  const verificationLevels = [
+    {
+      level: 1,
+      title: "Self-Reported",
+      description: "Just log basic numbers like deals closed and quota. Takes 2 minutes to update each quarter - no complex data entry needed. Each entry is timestamped on the blockchain.",
+      icon: FileText,
+      badge: "Free",
+      color: "emerald",
+      subBadge: "Basic",
+      tags: ["Free Forever", "2-Min Updates"]
+    },
+    {
+      level: 2,
+      title: "Work Email",
+      description: "Verify your corporate email address to establish company affiliation. Simple, secure process with no inbox access needed.",
+      icon: Mail,
+      badge: "Free",
+      color: "emerald",
+      subBadge: "Email Verified",
+      tags: ["Free Forever", "Secure"]
+    },
+    {
+      level: 3,
+      title: "Document Proof",
+      description: "Verify past compensation and roles through standard documents (W2s, offer letters, pay stubs). We extract only the key data points and create blockchain verification proofs - the original documents are never stored or retained.",
+      icon: FileText,
+      badge: "Free",
+      color: "emerald",
+      subBadge: "Doc Verified",
+      tags: ["Free Forever", "Privacy First"]
+    },
+    {
+      level: 4,
+      title: "LinkedIn Profile",
+      description: "Connect your LinkedIn to add social credibility. Verify your work history, role changes, and professional network automatically.",
+      icon: Link,
+      badge: "Free",
+      color: "emerald",
+      subBadge: "Profile Verified",
+      tags: ["Free Forever", "Social Proof"]
+    },
+    {
+      level: 5,
+      title: "Peer Endorsements",
+      description: "Get backup from colleagues with verified work emails from your company. They confirm specific achievements they witnessed firsthand.",
+      icon: Users,
+      badge: "Free",
+      color: "emerald",
+      subBadge: "Peer Verified",
+      tags: ["Free Forever", "Team Backup"]
+    },
+    {
+      level: 6,
+      title: "Achievement Badges",
+      description: "Upload certificates for President's Club, sales competitions, training programs. Build a complete picture of your sales expertise.",
+      icon: Award,
+      badge: "Free",
+      color: "emerald",
+      subBadge: "Award Verified",
+      tags: ["Free Forever", "Recognition Proof"]
+    },
+    {
+      level: 7,
+      title: "Manager Verification",
+      description: "When your company joins, managers can verify your achievements through their corporate account. Perfect for validating quarterly performance.",
+      icon: UserCheck,
+      badge: "Company",
+      color: "indigo",
+      subBadge: "Manager Verified",
+      tags: ["Company Enabled", "High Trust"]
+    },
+    {
+      level: 8,
+      title: "Activity Tracking",
+      description: "Connect your outbound tools (Outreach, SalesLoft, etc.) to verify prospecting activity. Prove your hustle with verified outbound metrics.",
+      icon: Target,
+      badge: "Company",
+      color: "indigo",
+      subBadge: "Activity Verified",
+      tags: ["Company Enabled", "Real-time"]
+    },
+    {
+      level: 9,
+      title: "CRM Integration",
+      description: "Connect your company's CRM to automatically verify deals, pipeline, and quota attainment. Customer data stays private - only your metrics sync.",
+      icon: Database,
+      badge: "Company",
+      color: "indigo",
+      subBadge: "Auto Verified",
+      tags: ["Company Enabled", "Deal Proof"]
+    },
+    {
+      level: 10,
+      title: "Payroll Integration",
+      description: "Connect to company payroll systems (ADP, etc.) to verify OTE, commissions, and bonuses. All compensation data is encrypted and private.",
+      icon: Coins,
+      badge: "Company",
+      color: "indigo",
+      subBadge: "Comp Verified",
+      tags: ["Company Enabled", "Commission Proof"]
+    },
+    {
+      level: 11,
+      title: "Performance Reviews",
+      description: "Sync your official performance review data to verify rankings, improvement, and achievements. All feedback remains private and secure.",
+      icon: TrendingUp,
+      badge: "Company",
+      color: "indigo",
+      subBadge: "Review Verified",
+      tags: ["Company Enabled", "Growth Proof"]
+    }
+  ];
