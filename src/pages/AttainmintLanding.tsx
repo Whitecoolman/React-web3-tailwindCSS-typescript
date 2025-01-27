@@ -794,3 +794,45 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       buildMessage: "Enabling automatic updates..."
     }
   ];
+
+  const demoSectionRef = useRef<HTMLDivElement>(null);
+
+  // Add intersection observer hook
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && step === 0) {
+          setStep(1); // Start the demo when section comes into view
+        }
+      },
+      { threshold: 0.3 } // Start when 30% of the section is visible
+    );
+
+    if (demoSectionRef.current) {
+      observer.observe(demoSectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Update testimonials
+  const testimonials = [
+    {
+      quote: "Finally, a way to own my sales track record. Started with basic quarterly updates, added my W2s and offer letters, then got peer endorsements. Now I have a complete history that moves with my career.",
+      author: "David Chen",
+      role: "Enterprise Sales Director",
+      company: "Previously at Oracle, now at Salesforce"
+    },
+    {
+      quote: "The universal rankings are game-changing. I can see exactly how I stack up against other AEs in my industry, which was invaluable during my recent job search and salary negotiations.",
+      author: "Sarah Martinez",
+      role: "Account Executive",
+      company: "Series B Startup"
+    },
+    {
+      quote: "As a sales leader, the benchmarking data is incredible. I can see industry patterns, identify top performers, and make better hiring decisions based on verified performance data.",
+      author: "Michael Kim",
+      role: "VP of Sales",
+      company: "Growth-stage SaaS"
+    }
+  ];
