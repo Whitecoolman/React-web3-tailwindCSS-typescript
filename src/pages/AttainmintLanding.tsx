@@ -741,3 +741,56 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       ]
     }
   ];
+
+  const handleGetStarted = (plan?: string) => {
+    // First scroll to top of current page
+    window.scrollTo(0, 0);
+
+    // Then navigate to the appropriate page
+    if (plan === 'professional') {
+      navigate('/pricing?plan=professional');
+    } else if (plan === 'enterprise') {
+      navigate('/contact_us');
+    } else {
+      navigate('/signup');
+    }
+  };
+
+  // Update the steps array with better messaging about building your story
+  const steps = [
+    {
+      title: "Quick Start",
+      description: "Begin with basic numbers - just log your deals and quota attainment. Takes 2 minutes to start building your verified history.",
+      icon: <FileText className="w-6 h-6" />,
+      achievement: "First Quarter Logged",
+      buildMessage: "Starting your sales history..."
+    },
+    {
+      title: "Add Proof",
+      description: "Upload standard documents like W2s, offer letters, and pay stubs. Each proof point strengthens your track record's credibility.",
+      icon: <Shield className="w-6 h-6" />,
+      achievement: "Multiple Verifications Added",
+      buildMessage: "Adding verification layers..."
+    },
+    {
+      title: "Get Backup",
+      description: "Colleagues with verified corporate emails confirm your achievements. Their endorsements add social proof to your track record.",
+      icon: <Users className="w-6 h-6" />,
+      achievement: "Peer Endorsements Secured",
+      buildMessage: "Building social proof..."
+    },
+    {
+      title: "Show Growth",
+      description: "Your history shows consistent quota achievement and deal success. Perfect for proving your long-term sales impact.",
+      icon: <TrendingUp className="w-6 h-6" />,
+      achievement: "Consistent 120%+ Performance",
+      buildMessage: "Tracking performance trends..."
+    },
+    {
+      title: "Automate Updates",
+      description: "Once your company joins, connect CRM and payroll systems to automatically verify new achievements in real-time.",
+      icon: <RefreshCw className="w-6 h-6" />,
+      achievement: "Real-time Verification Active",
+      buildMessage: "Enabling automatic updates..."
+    }
+  ];
