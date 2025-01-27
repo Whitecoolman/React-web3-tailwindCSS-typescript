@@ -670,3 +670,74 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       )}
     </div>
   );
+
+  const faqSections = [
+    {
+      title: "Getting Started",
+      questions: [
+        {
+          q: "Do I need my company's approval to use this?",
+          a: "No. You can sign up with any email address and start tracking your sales metrics immediately. While corporate integration is available, it's completely optional. Many users start with self-reported data and add verifications over time."
+        },
+        {
+          q: "What if my company uses restricted CRM systems?",
+          a: "No problem! You can manually log your deals and achievements, or connect your CRM. Many sales professionals start with manual tracking and add integrations later when possible."
+        },
+        {
+          q: "Is there a free plan?",
+          a: "Yes! Individual sales professionals can sign up and use core features completely free. This includes manual tracking, blockchain verification, and basic profile sharing."
+        }
+      ]
+    },
+    {
+      title: "Verification & Trust",
+      questions: [
+        {
+          q: "How does verification work?",
+          a: "We offer multiple layers of verification. Start with self-reported metrics (anchored on the blockchain for immutability). Then optionally add manager endorsements, peer verifications, or connect your personal CRM for automatic verification. Each verification layer adds more credibility to your profile."
+        },
+        {
+          q: "How do you prevent fake endorsements?",
+          a: "Each endorsement is tied to a verified blockchain identity. Managers and peers must prove their role/relationship before their endorsements are counted. Our system also detects suspicious patterns and requires additional verification for high-value claims."
+        },
+        {
+          q: "What makes this more trustworthy than LinkedIn?",
+          a: "Unlike traditional platforms where anyone can claim anything, our blockchain-based system ensures that once metrics are recorded, they cannot be altered. Each verification layer adds cryptographic proof, and hiring managers can independently verify the authenticity of claims."
+        }
+      ]
+    },
+    {
+      title: "Privacy & Security",
+      questions: [
+        {
+          q: "Is my data private and secure?",
+          a: "Absolutely. Your data is encrypted and private by default. You control what metrics to share and with whom. While achievement proofs are stored on the blockchain, sensitive details (like client names) remain private and off-chain."
+        },
+        {
+          q: "Can my current employer see my profile?",
+          a: "You have complete control over your profile visibility. You can keep it private, share selectively with specific hiring managers, or make certain achievements public while keeping others private."
+        },
+        {
+          q: "What happens if I change jobs?",
+          a: "Your verified achievements stay with you! Since they're anchored on the blockchain and can be independently verified, you maintain your track record even when changing employers."
+        }
+      ]
+    },
+    {
+      title: "For Hiring Managers",
+      questions: [
+        {
+          q: "What can hiring managers see?",
+          a: "Hiring managers see your verified sales metrics, including quota attainment, deal sizes, and performance trends. Each metric shows its verification level (self-reported, manager-endorsed, CRM-verified, etc.). They can also verify the authenticity of your data directly on the blockchain."
+        },
+        {
+          q: "How do I verify candidate claims?",
+          a: "Each achievement includes a blockchain verification link. Click it to see the original recording date, verification layers, and cryptographic proof. No technical knowledge needed—we make verification simple and instant."
+        },
+        {
+          q: "Can I compare candidates?",
+          a: "Yes! Our hiring manager portal lets you compare verified metrics across candidates, filter by achievement types, and see detailed verification levels for each claim. This makes screening more efficient and reliable."
+        }
+      ]
+    }
+  ];
