@@ -1363,3 +1363,191 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
               </div>
             </div>
           </section>
+<section ref={demoSectionRef} className={`py-24 ${getSectionBg('accent')} overflow-hidden relative`}>
+            {/* Add gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-teal-500/5 to-transparent pointer-events-none"></div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+              <div className="text-center mb-16">
+                <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${getTextColor('primary')}`}>
+                  Watch Your Story <span className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent">Build</span>
+                </h2>
+                <p className={`text-xl ${getTextColor('secondary')} max-w-3xl mx-auto`}>
+                  See how your blockchain-verified resume builds itself with each achievement
+                </p>
+              </div>
+
+              {/* Demo Content without window controls */}
+              <div className={`
+                relative rounded-2xl overflow-hidden shadow-2xl
+                ${darkMode ? 'bg-gray-900/80 border border-gray-800' : 'bg-white/90 border border-gray-200'}
+                backdrop-blur-sm
+              `}>
+                <div className="p-4 sm:p-6">
+                  {/* Interactive steps content */}
+                  <div className="max-w-4xl mx-auto">
+                    {/* Building Message */}
+                    {step > 0 && step < steps.length && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className={`
+                          mb-6 p-3 sm:p-4 rounded-lg text-center
+                          ${darkMode ? 'bg-teal-900/20 text-teal-200' : 'bg-teal-50 text-teal-700'}
+                          backdrop-blur-sm
+                        `}
+                      >
+                        <div className="flex items-center justify-center gap-2">
+                          <RefreshCw className="w-4 h-4 animate-spin" />
+                          <span className="text-sm sm:text-base">{steps[step - 1].buildMessage}</span>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* Steps Container */}
+                    <motion.div
+                      animate={{
+                        opacity: 1,
+                        filter: 'blur(0px)',
+                        scale: 1,
+                      }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <div className="relative">
+                        {/* Progress Line */}
+                        <div className="absolute left-6 sm:left-16 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-500/20 to-purple-500/20">
+                          <motion.div
+                            className="absolute top-0 w-full bg-gradient-to-b from-teal-500 to-purple-500"
+                            initial={{ height: "0%" }}
+                            animate={{ height: `${(step / (steps.length - 1)) * 100}%` }}
+                            transition={{ duration: 0.5 }}
+                          />
+                        </div>
+
+                        {/* Steps */}
+                        {steps.map((s, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{
+                              opacity: step >= index ? 1 : 0.5,
+                              x: step >= index ? 0 : -50
+                            }}
+                            className={`flex items-start gap-3 sm:gap-8 mb-8 sm:mb-12 ${
+                              step >= index ? getTextColor('primary') : getTextColor('muted')
+                            }`}
+                          >
+                            <div className={`
+                              relative z-10 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center
+                              transition-colors duration-200 flex-shrink-0
+                              ${step >= index 
+                                ? "bg-gradient-to-r from-teal-500 to-purple-500" 
+                                : darkMode ? "bg-gray-800" : "bg-gray-200"}
+                            `}>
+                              <div className="w-4 h-4 sm:w-6 sm:h-6">
+                                {s.icon}
+                              </div>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-base sm:text-xl font-semibold mb-1 sm:mb-2">{s.title}</h3>
+                              <p className={`${getTextColor('muted')} text-sm sm:text-base`}>{s.description}</p>
+                              {step >= index && (
+                                <motion.div
+                                  initial={{ opacity: 0, y: 20 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  className="flex items-center gap-2 mt-2 sm:mt-3"
+                                >
+                                  <div className={`
+                                    flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm
+                                    ${darkMode ? 'bg-teal-900/20 text-teal-200' : 'bg-teal-50 text-teal-700'}
+                                  `}>
+                                    <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
+                                    <span>{s.achievement}</span>
+                                  </div>
+                                </motion.div>
+                              )}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Sample Resume Section */}
+          <section className={`py-24 ${getSectionBg('primary')} relative`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="max-w-3xl mx-auto"
+                >
+                  <div className={`
+                    inline-flex items-center gap-2 px-6 py-2 rounded-full text-base font-semibold mb-8
+                    ${darkMode ? 'bg-teal-900/50 text-teal-200' : 'bg-teal-50 text-teal-800'}
+                  `}>
+                    <Shield className="w-5 h-5" />
+                    Blockchain-Anchored Resume
+                  </div>
+                  <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${getTextColor('primary')}`}>
+                    Your <span className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent">Verified</span> Sales History
+                  </h2>
+                  <p className={`text-xl ${getTextColor('secondary')} max-w-3xl mx-auto mb-8`}>
+                    Every achievement is verified and recorded on the blockchain, creating an immutable and portable record of your success. 
+                    Perfect for showcasing your track record to hiring managers and building long-term career value.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                    {[
+                      {
+                        icon: Shield,
+                        title: "Verified Proof",
+                        description: "Blockchain-backed metrics"
+                      },
+                      {
+                        icon: Target,
+                        title: "Industry Rankings",
+                        description: "Compare with peers"
+                      },
+                      {
+                        icon: Eye,
+                        title: "Privacy First",
+                        description: "You control sharing"
+                      },
+                      {
+                        icon: TrendingUp,
+                        title: "Career Growth",
+                        description: "Track your progress"
+                      }
+                    ].map((benefit) => (
+                      <motion.div
+                        key={benefit.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className={`
+                          flex items-center gap-3 px-4 py-3 rounded-lg border
+                          backdrop-blur-md transition-all duration-200 shadow-lg
+                          ${darkMode 
+                            ? 'bg-white/10 border-white/20 hover:bg-white/15' 
+                            : 'bg-white/20 border-gray-200/30 hover:bg-white/25'}
+                        `}
+                      >
+                        <benefit.icon className="w-5 h-5 text-teal-500" />
+                        <div className="text-left">
+                          <div className={`font-semibold ${getTextColor('primary')} drop-shadow-sm`}>
+                            {benefit.title}
+                          </div>
+                          <div className={`text-sm ${getTextColor('secondary')} drop-shadow-sm`}>
+                            {benefit.description}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
