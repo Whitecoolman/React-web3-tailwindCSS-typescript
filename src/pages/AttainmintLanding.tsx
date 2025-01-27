@@ -21,3 +21,58 @@ import pumpfunLogo from '../assets/pumpfun_logo.webp';
 import { useTokenData } from '../hooks/useTokenData';
 import BlockchainResume from './BlockchainResume';
 import fallingLeaves from '../assets/falling_leaves2.webm';
+
+interface LandingPageProps {
+  onOpenWaitlistSignup: () => void;
+}
+
+interface Feature {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: React.ElementType;
+  benefits: string[];
+  color: string;
+  stats: Array<{ label: string; value: string }>;
+  tradingLink?: {
+    url: string;
+    logo: string;
+    chart?: string;
+  };
+}
+
+interface Benefit {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
+
+interface AIFeature {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  stats: Array<{ label: string; value: string }>;
+  features: string[];
+}
+
+interface HiringFeature {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+// Declare TradingView types
+declare global {
+  interface Window {
+    TradingView: {
+      widget: new (config: any) => any;
+    };
+  }
+}
