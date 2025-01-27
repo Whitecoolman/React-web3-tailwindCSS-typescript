@@ -836,3 +836,50 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       company: "Growth-stage SaaS"
     }
   ];
+
+  return (
+    <>
+      {/* Pause Button */}
+      {isLandingPage && (
+        <button
+          onClick={() => setIsPaused(!isPaused)}
+          className={`
+            fixed top-4 right-4 z-50 p-2 rounded-full
+            backdrop-blur-sm transition-all duration-200
+            ${darkMode 
+              ? 'bg-white/10 hover:bg-white/20 text-white' 
+              : 'bg-gray-900/10 hover:bg-gray-900/20 text-gray-900'}
+          `}
+          aria-label={isPaused ? 'Play animations' : 'Pause animations'}
+        >
+          {isPaused ? (
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Play className="w-5 h-5" />
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Pause className="w-5 h-5" />
+            </motion.div>
+          )}
+        </button>
+      )}
+
+      {/* Background Image with Data Tree */}
+      <div 
+        className={`
+          fixed inset-0 w-full h-full bg-center bg-cover bg-no-repeat
+          ${darkMode ? 'opacity-50' : 'opacity-30'}
+        `}
+        style={{
+          backgroundImage: `url(${dataTree})`,
+          zIndex: 0
+        }}
+      />
