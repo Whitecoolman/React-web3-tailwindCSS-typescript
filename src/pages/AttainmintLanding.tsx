@@ -584,3 +584,25 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       setLoading(false);
     }
   };
+
+  const getTextColor = (type: 'primary' | 'secondary' | 'muted') => {
+    switch(type) {
+      case 'primary':
+        return darkMode ? 'text-white' : 'text-gray-900';
+      case 'secondary':
+        return darkMode ? 'text-gray-200' : 'text-gray-800';
+      case 'muted':
+        return darkMode ? 'text-gray-400' : 'text-gray-600';
+    }
+  };
+
+  const getSectionBg = (type: 'primary' | 'secondary' | 'accent') => {
+    switch(type) {
+      case 'primary':
+        return darkMode ? 'bg-gray-900' : 'bg-white';
+      case 'secondary':
+        return darkMode ? 'bg-gray-800/50' : 'bg-gray-50';
+      case 'accent':
+        return darkMode ? 'bg-black/30' : 'bg-gray-100';
+    }
+  };
