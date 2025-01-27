@@ -512,3 +512,44 @@ export default function LandingPage({ onOpenWaitlistSignup }: LandingPageProps) 
       ]
     }
   ];
+
+  useEffect(() => {
+    const fetchCsrfToken = async () => {
+      try {
+        const response = await axios.get('/api/get-csrf-token', {
+          withCredentials: true,
+        });
+        setCsrfToken(response.data.csrf_token);
+      } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+        setError('Failed to get CSRF token.');
+      }
+    };
+
+    fetchCsrfToken();
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto'
+      });
+    }, 0);
+  }, [location]);
+
+  useEffect(() => {
+    if (step < steps.length) {
+      const timer = setTimeout(() => {
+        setStep(prev => prev + 1);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [step]);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5; // Increase speed slightly to 50%
+    }
+  }, []);
